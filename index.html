@@ -13,17 +13,16 @@
     
     <style>
         :root {
-            --navy: #000000;
-            --blue: #FF6B35;
-            --light-blue: #FF8C42;
-            --accent: #FF6B35;
-            --orange: #FF6B35;
-            --light-orange: #FF8C42;
-            --dark: #000000;
-            --dark-bg: #000000;
-            --darker-bg: #0A0A0A;
-            --gray: #B8B8B8;
-            --light-gray: #1A1A1A;
+            --coral: #E14658;
+            --navy: #22252C;
+            --mountain: #3F3250;
+            --scrub: #C0B3A0;
+            --accent: #E14658;
+            --dark: #22252C;
+            --dark-bg: #22252C;
+            --darker-bg: #1A1C21;
+            --gray: #C0B3A0;
+            --light-gray: #3F3250;
             --white: #FFFFFF;
         }
         
@@ -51,16 +50,27 @@
             padding: 0 2rem;
         }
         
+        /* Network Background Canvas */
+        #networkCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
         /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.98);
+            background: rgba(34, 37, 44, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+            border-bottom: 1px solid rgba(225, 70, 88, 0.2);
+            pointer-events: auto;
         }
         
         nav .container {
@@ -73,7 +83,7 @@
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
             font-size: 1.25rem;
-            color: var(--orange);
+            color: var(--coral);
             text-decoration: none;
         }
         
@@ -92,7 +102,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--orange);
+            color: var(--coral);
         }
         
         /* Hero Section */
@@ -112,7 +122,7 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 140, 66, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(225, 70, 88, 0.05) 0%, rgba(225, 70, 88, 0.1) 100%);
             clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
             z-index: -1;
         }
@@ -129,14 +139,14 @@
             height: 280px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--orange);
-            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.4);
+            border: 4px solid var(--coral);
+            box-shadow: 0 20px 60px rgba(225, 70, 88, 0.4);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .profile-photo:hover {
             transform: scale(1.05);
-            box-shadow: 0 25px 70px rgba(255, 107, 53, 0.6);
+            box-shadow: 0 25px 70px rgba(225, 70, 88, 0.6);
         }
         
         .hero-text h1 {
@@ -148,7 +158,7 @@
         }
         
         .hero-text .highlight {
-            color: var(--orange);
+            color: var(--coral);
         }
         
         .hero-text .subtitle {
@@ -184,17 +194,17 @@
         }
         
         .btn-primary {
-            background: var(--orange);
+            background: var(--coral);
             color: var(--white);
-            border: 2px solid var(--orange);
+            border: 2px solid var(--coral);
         }
         
         .btn-primary:hover {
             background: transparent;
-            color: var(--orange);
-            border-color: var(--orange);
+            color: var(--coral);
+            border-color: var(--coral);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 10px 25px rgba(225, 70, 88, 0.4);
         }
         
         .btn-secondary {
@@ -212,6 +222,13 @@
         /* Section Styles */
         section {
             padding: 6rem 0;
+            position: relative;
+            z-index: 1;
+            pointer-events: auto;
+        }
+        
+        section * {
+            pointer-events: auto;
         }
         
         .section-header {
@@ -263,7 +280,7 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--orange);
+            color: var(--coral);
             font-weight: 700;
         }
         
@@ -272,17 +289,22 @@
             background: var(--darker-bg);
         }
         
+        /* Education Section */
+        .education {
+            background: var(--dark-bg);
+        }
+        
         .timeline {
             max-width: 900px;
             margin: 0 auto;
         }
         
         .timeline-item {
-            background: var(--light-gray);
+            background: var(--coral);
             padding: 2.5rem;
             border-radius: 12px;
             margin-bottom: 2rem;
-            border-left: 4px solid var(--orange);
+            border-left: 4px solid var(--white);
             transition: transform 0.3s;
         }
         
@@ -305,7 +327,7 @@
             gap: 1.5rem;
             flex-wrap: wrap;
             font-size: 0.95rem;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0.5rem;
         }
         
@@ -325,20 +347,20 @@
             margin-bottom: 0.75rem;
             position: relative;
             line-height: 1.7;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.95);
         }
         
         .timeline-content li::before {
             content: '•';
             position: absolute;
             left: 0;
-            color: var(--orange);
+            color: var(--white);
             font-weight: 700;
             font-size: 1.2rem;
         }
         
         .timeline-content p {
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.95);
         }
         
         .tech-stack {
@@ -349,14 +371,79 @@
         }
         
         .tech-tag {
-            background: var(--darker-bg);
-            color: var(--orange);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
             padding: 0.4rem 0.9rem;
             border-radius: 6px;
             font-size: 0.85rem;
             font-family: 'JetBrains Mono', monospace;
             font-weight: 500;
-            border: 1px solid var(--orange);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Projects Section */
+        .projects {
+            background: var(--darker-bg);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background: var(--coral);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--white);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(225, 70, 88, 0.5);
+        }
+        
+        .project-card h3 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .project-card h3 a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .project-card h3 a:hover {
+            color: var(--navy);
+        }
+        
+        .project-card p {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .project-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         /* Skills Section */
@@ -370,7 +457,7 @@
         
         .skill-category h3 {
             font-size: 1.3rem;
-            color: var(--orange);
+            color: var(--coral);
             margin-bottom: 1rem;
             font-weight: 700;
         }
@@ -394,14 +481,58 @@
         
         .skill-item:hover {
             background: transparent;
-            color: var(--orange);
-            border-color: var(--orange);
+            color: var(--coral);
+            border-color: var(--coral);
             transform: translateY(-2px);
+        }
+        
+        /* Hobbies Section */
+        .hobbies {
+            background: var(--darker-bg);
+        }
+        
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hobby-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(225, 70, 88, 0.3);
+            border-color: var(--coral);
+        }
+        
+        .hobby-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hobby-card h3 {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .hobby-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
         }
         
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, var(--darker-bg) 0%, rgba(255, 107, 53, 0.1) 100%);
+            background: linear-gradient(135deg, var(--darker-bg) 0%, rgba(225, 70, 88, 0.1) 100%);
             color: var(--white);
             text-align: center;
         }
@@ -423,15 +554,15 @@
         }
         
         .contact-buttons .btn {
-            background: var(--orange);
+            background: var(--coral);
             color: var(--white);
-            border-color: var(--orange);
+            border-color: var(--coral);
         }
         
         .contact-buttons .btn:hover {
             background: transparent;
-            color: var(--orange);
-            border-color: var(--orange);
+            color: var(--coral);
+            border-color: var(--coral);
         }
         
         /* Footer */
@@ -504,16 +635,20 @@
                 font-size: 2rem;
             }
             
-            .impact-number {
-                font-size: 2.5rem;
-            }
-            
             .cta-buttons {
                 flex-direction: column;
             }
             
             .btn {
                 text-align: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hobbies-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -553,6 +688,9 @@
     </style>
 </head>
 <body>
+    <!-- Network Background Canvas -->
+    <canvas id="networkCanvas"></canvas>
+    
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -561,7 +699,10 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about" onclick="closeMenu()">About</a></li>
                 <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#education" onclick="closeMenu()">Education</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
                 <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#hobbies" onclick="closeMenu()">Hobbies</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </div>
@@ -574,8 +715,7 @@
                 <div class="hero-text">
                     <p class="subtitle fade-in"></p>
                     <h1 class="fade-in delay-1">
-                        Hi there, &#128075;<br>
-                        <span class="highlight">I'm Aditya!</span><br>
+                        Hi there, &#128075; <span class="highlight">I'm Aditya!</span>
                     </h1>
                     <p class="tagline fade-in delay-2">
                         A passionate <strong>Data Engineer</strong> who loves architecting scalable data platforms that drive business impact. Specialized in AWS, Databricks, and Palantir Foundry.
@@ -594,7 +734,7 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>About Me</h2>
+                <h2>About Me 🧑🏻‍💻</h2>
             </div>
             <div class="about-content">
                 <p>
@@ -627,7 +767,7 @@
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-header">
-                <h2>Experience</h2>
+                <h2>Experience 🚀</h2>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
@@ -682,17 +822,80 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2>Education 🎓</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Master of Science in Information Systems (Data Science)</h3>
+                        <div class="timeline-meta">
+                            <span>📍 New Jersey Institute of Technology (NJIT), Newark, NJ</span>
+                            <span>📅 2019 - 2021</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <p>Specialized in Data Science, Machine Learning, and Advanced Analytics. Focused on building scalable data systems and predictive modeling.</p>
+                    </div>
+                </div>
 
                 <div class="timeline-item">
                     <div class="timeline-header">
-                        <h3>Education</h3>
+                        <h3>Bachelor of Technology in Electronics Engineering</h3>
+                        <div class="timeline-meta">
+                            <span>📍 Veermata Jijabai Technological Institute (VJTI), Mumbai, India</span>
+                            <span>📅 2015 - 2019</span>
+                        </div>
                     </div>
                     <div class="timeline-content">
-                        <p><strong>Master of Science in Information Systems (Data Science)</strong><br>
-                        New Jersey Institute of Technology (NJIT) | 2019 - 2021</p>
-                        
-                        <p style="margin-top: 1rem;"><strong>Bachelor of Technology in Electronics Engineering</strong><br>
-                        Veermata Jijabai Technological Institute (VJTI), Mumbai | 2015 - 2019</p>
+                        <p>Strong foundation in electronics, signal processing, and embedded systems. Developed problem-solving and analytical skills essential for data engineering.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects 💡</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="#" target="_blank">Cloud Infrastructure Modernization</a></h3>
+                    <p>Led initiative to migrate 10 critical data sources from agent-based connections to direct VPC Endpoint/PrivateLink architecture, pioneering implementation for Databricks and Filenet integration with zero downtime.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AWS VPC</span>
+                        <span class="project-tag">PrivateLink</span>
+                        <span class="project-tag">Databricks</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" target="_blank">RAC Directory Platform</a></h3>
+                    <p>Designed and built automated directory management system replacing manual Excel workflows for 25-person team, scaling to 10K+ records with real-time sync and advanced search capabilities.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Palantir Foundry</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">ETL</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" target="_blank">Real-time Analytics Dashboard</a></h3>
+                    <p>Built scalable real-time analytics platform processing 70GB+ daily data, serving 10K+ active users with sub-second query performance across batch and streaming pipelines.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Spark</span>
+                        <span class="project-tag">Kinesis</span>
+                        <span class="project-tag">AWS</span>
                     </div>
                 </div>
             </div>
@@ -703,7 +906,7 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <h2>Technical Skills</h2>
+                <h2>Technical Skills 🎯</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -754,10 +957,57 @@
         </div>
     </section>
 
+    <!-- Hobbies Section -->
+    <section id="hobbies" class="hobbies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Beyond Work ⚡</h2>
+                <p class="subtitle">When I'm not architecting data platforms, you'll find me...</p>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-icon">⚽</div>
+                    <h3>Soccer</h3>
+                    <p>Playing & watching the beautiful game</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎮</div>
+                    <h3>Gaming</h3>
+                    <p>Strategy games & competitive esports</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">💪</div>
+                    <h3>Workout</h3>
+                    <p>Staying fit & building strength</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">🏃</div>
+                    <h3>Running</h3>
+                    <p>Morning runs & marathons</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">🥾</div>
+                    <h3>Hiking</h3>
+                    <p>Exploring trails & nature</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">🏎️</div>
+                    <h3>Go-Karting</h3>
+                    <p>Speed & adrenaline rush</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Let's Connect</h2>
+            <h2>Let's Connect ☎️</h2>
             <p class="subtitle">
                 I'm currently exploring senior data engineering opportunities where I can drive platform modernization, lead teams, and deliver measurable impact.<br><br>
                 If you're hiring or know someone who is, I'd love to chat.
@@ -765,8 +1015,7 @@
             <div class="contact-buttons">
                 <a href="https://www.linkedin.com/in/aditya-deshmukh-cd99/" target="_blank" class="btn">LinkedIn</a>
                 <a href="mailto:aditya.deshmukh.cd@gmail.com" class="btn">Email Me</a>
-                <a href="https://calendly.com/your-link" target="_blank" class="btn">Schedule a Call</a>
-                <a href="#" class="btn">Download Resume</a>
+                <a href="Aditya_Deshmukh_Resume.pdf" download class="btn">Download Resume</a>
             </div>
         </div>
     </section>
@@ -812,6 +1061,165 @@
                 }
             });
         });
+        
+        // ============================================
+        // Network Background Animation
+        // ============================================
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // Configuration
+        let config = {
+            particleCount: 119,
+            maxDistance: 144,
+            speed: 1.6,
+            particleColor: 'rgba(225, 70, 88, 0.6)',
+            lineColor: 'rgba(192, 179, 160, 0.2)',
+            particleSize: 2
+        };
+        
+        // Particle class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * config.speed;
+                this.vy = (Math.random() - 0.5) * config.speed;
+                this.radius = config.particleSize;
+            }
+            
+            update() {
+                this.x += this.vx * config.speed;
+                this.y += this.vy * config.speed;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                
+                this.x = Math.max(0, Math.min(canvas.width, this.x));
+                this.y = Math.max(0, Math.min(canvas.height, this.y));
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = config.particleColor;
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        let particles = [];
+        
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < config.particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        // Connect particles with lines
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < config.maxDistance) {
+                        const opacity = 1 - (distance / config.maxDistance);
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(192, 179, 160, ${opacity * 0.2})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        // Mouse interaction
+        let mouse = {
+            x: null,
+            y: null,
+            radius: 150
+        };
+        
+        canvas.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        
+        canvas.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        
+        // Mouse interaction effect
+        function handleMouseInteraction() {
+            if (mouse.x && mouse.y) {
+                particles.forEach(particle => {
+                    const dx = mouse.x - particle.x;
+                    const dy = mouse.y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < mouse.radius) {
+                        // Draw connection to mouse
+                        const opacity = 1 - (distance / mouse.radius);
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(225, 70, 88, ${opacity * 0.5})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                        
+                        // Push particles away slightly
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        const angle = Math.atan2(dy, dx);
+                        particle.x -= Math.cos(angle) * force * 2;
+                        particle.y -= Math.sin(angle) * force * 2;
+                    }
+                });
+                
+                // Draw mouse point
+                ctx.beginPath();
+                ctx.arc(mouse.x, mouse.y, 4, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(225, 70, 88, 0.6)';
+                ctx.fill();
+            }
+        }
+        
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            connectParticles();
+            
+            // Mouse interaction
+            handleMouseInteraction();
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+        // Initialize and start animation
+        initParticles();
+        animate();
     </script>
 </body>
 </html>
