@@ -496,11 +496,48 @@
         
         .hobby-card {
             background: var(--light-gray);
-            padding: 2rem;
             border-radius: 12px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 2px solid transparent;
+            height: 200px;
+            perspective: 1000px;
+        }
+        
+        .hobby-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .hobby-card:hover .hobby-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .hobby-card-front,
+        .hobby-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .hobby-card-front {
+            background: var(--light-gray);
+        }
+        
+        .hobby-card-back {
+            background: var(--coral);
+            transform: rotateY(180deg);
         }
         
         .hobby-card:hover {
@@ -520,9 +557,15 @@
             margin-bottom: 0.5rem;
         }
         
-        .hobby-card p {
+        .hobby-card-front p {
             font-size: 0.9rem;
             color: var(--gray);
+        }
+        
+        .hobby-card-back p {
+            font-size: 0.95rem;
+            color: var(--white);
+            line-height: 1.6;
         }
         
         /* Contact Section */
@@ -775,11 +818,11 @@
                     </div>
                     <div class="timeline-content">
                         <ul>
-                            <li>Architected direct VPC Endpoint/PrivateLink connections for 10 critical data sources, eliminating 36+ annual maintenance hours and operational risk</li>
-                            <li>Reduced platform costs by $120K+ annually while improving processing performance by 60%</li>
-                            <li>Led DevOps initiative establishing DEV/PROD separation for 15 use cases serving 8K+ users</li>
-                            <li>Mentor team of 5 data engineers across multiple time zones, reducing escalations through structured knowledge transfer</li>
-                            <li>Designed and delivered RAC Directory application replacing manual Excel process for 25-person team, scaling to 10K+ records</li>
+                            <li>Built direct cloud connections using AWS VPC Endpoint and PrivateLink for 10 different data sources (Databricks, S3, Kinesis, you name it), which meant our team no longer had to babysit agent-based connections that broke all the time—saving 36+ hours of maintenance headaches every year</li>
+                            <li>Slashed our platform costs by $120K annually by optimizing how we moved and processed data, and as a bonus, everything runs 60% faster now</li>
+                            <li>Set up proper DEV and PROD environments for 15 different use cases supporting 8,000+ users—before this, people were basically testing in production (yikes!)</li>
+                            <li>Lead a team of 5 engineers spread across different time zones, helping them level up through code reviews, documentation, and regular knowledge-sharing sessions—cut down our support escalations significantly</li>
+                            <li>Created the RAC Directory app using Palantir Foundry to replace a nightmare Excel spreadsheet process for 25 people—now it handles 10,000+ records automatically and actually works</li>
                         </ul>
                         <div class="tech-stack">
                             <span class="tech-tag">Palantir Foundry</span>
@@ -802,10 +845,10 @@
                     </div>
                     <div class="timeline-content">
                         <ul>
-                            <li>Designed high-performance data pipelines using AWS and Databricks, powering dashboards for 2,000+ users</li>
-                            <li>Built dynamic dashboards with Foundry tools, improving decision-making efficiency by 80%</li>
-                            <li>Optimized dataset builds using data lineage, enhancing downstream performance by 30%</li>
-                            <li>Developed SQL-based solutions with complex queries and window functions for business reporting</li>
+                            <li>Built end-to-end data pipelines with AWS and Databricks that power real-time dashboards for 2,000+ people across the company—basically turned raw vehicle data into insights that actually help people make decisions</li>
+                            <li>Created interactive dashboards using Palantir Foundry that made it way easier for teams to explore data on their own, cutting down decision-making time by 80% (no more waiting days for reports!)</li>
+                            <li>Dove into our data lineage to figure out why some datasets were so slow, then optimized them—improved downstream performance by 30% just by cleaning up the mess</li>
+                            <li>Wrote a bunch of SQL solutions with window functions and complex queries to pull together business reports that actually answered the questions people were asking</li>
                         </ul>
                         <div class="tech-stack">
                             <span class="tech-tag">AWS S3</span>
@@ -961,39 +1004,75 @@
             </div>
             <div class="hobbies-grid">
                 <div class="hobby-card">
-                    <div class="hobby-icon">⚽</div>
-                    <h3>Soccer</h3>
-                    <p>Playing & watching the beautiful game</p>
+                    <div class="hobby-card-inner">
+                        <div class="hobby-card-front">
+                            <div class="hobby-icon">⚽</div>
+                            <h3>Soccer</h3>
+                        </div>
+                        <div class="hobby-card-back">
+                            <p>Playing & watching the beautiful game. Whether it's a pickup game or watching the Premier League, soccer is my go-to sport!</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hobby-card">
-                    <div class="hobby-icon">🎮</div>
-                    <h3>Gaming</h3>
-                    <p>Strategy games & competitive esports</p>
+                    <div class="hobby-card-inner">
+                        <div class="hobby-card-front">
+                            <div class="hobby-icon">🎮</div>
+                            <h3>Gaming</h3>
+                        </div>
+                        <div class="hobby-card-back">
+                            <p>Strategy games & competitive esports. Love a good challenge whether it's building civilizations or climbing ranked ladders!</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hobby-card">
-                    <div class="hobby-icon">💪</div>
-                    <h3>Workout</h3>
-                    <p>Staying fit & building strength</p>
+                    <div class="hobby-card-inner">
+                        <div class="hobby-card-front">
+                            <div class="hobby-icon">💪</div>
+                            <h3>Workout</h3>
+                        </div>
+                        <div class="hobby-card-back">
+                            <p>Staying fit & building strength. Hitting the gym regularly keeps me energized and focused—consistency is key!</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hobby-card">
-                    <div class="hobby-icon">🏃</div>
-                    <h3>Running</h3>
-                    <p>Morning runs & marathons</p>
+                    <div class="hobby-card-inner">
+                        <div class="hobby-card-front">
+                            <div class="hobby-icon">🏃</div>
+                            <h3>Running</h3>
+                        </div>
+                        <div class="hobby-card-back">
+                            <p>Morning runs & marathons. There's nothing like a good run to clear your head and start the day right!</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hobby-card">
-                    <div class="hobby-icon">🥾</div>
-                    <h3>Hiking</h3>
-                    <p>Exploring trails & nature</p>
+                    <div class="hobby-card-inner">
+                        <div class="hobby-card-front">
+                            <div class="hobby-icon">🥾</div>
+                            <h3>Hiking</h3>
+                        </div>
+                        <div class="hobby-card-back">
+                            <p>Exploring trails & nature. Love getting outdoors and discovering new trails—perfect weekend adventure!</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hobby-card">
-                    <div class="hobby-icon">🏎️</div>
-                    <h3>Go-Karting</h3>
-                    <p>Speed & adrenaline rush</p>
+                    <div class="hobby-card-inner">
+                        <div class="hobby-card-front">
+                            <div class="hobby-icon">🏎️</div>
+                            <h3>Go-Karting</h3>
+                        </div>
+                        <div class="hobby-card-back">
+                            <p>Speed & adrenaline rush. Nothing beats the thrill of racing around the track at full throttle!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1071,10 +1150,10 @@
         let config = {
             particleCount: 119,
             maxDistance: 144,
-            speed: 1.2,
+            speed: 1.6,
             particleColor: 'rgba(225, 70, 88, 1)', // Full opacity - brighter!
             lineColor: 'rgba(192, 179, 160, 0.2)',
-            particleSize: 2.0  // Slightly larger
+            particleSize: 2.5  // Slightly larger
         };
         
         // Particle class
