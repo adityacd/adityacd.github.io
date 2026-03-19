@@ -182,6 +182,32 @@
             flex-wrap: wrap;
         }
         
+        .hero-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2.5rem;
+            max-width: 600px;
+        }
+        
+        .hero-skills .skill-item {
+            background: var(--light-gray);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .hero-skills .skill-item:hover {
+            background: transparent;
+            color: var(--coral);
+            border-color: var(--coral);
+            transform: translateY(-2px);
+        }
+        
         .btn {
             padding: 0.875rem 2rem;
             font-size: 1rem;
@@ -439,46 +465,6 @@
             font-size: 0.8rem;
             font-family: 'JetBrains Mono', monospace;
             border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .skill-category h3 {
-            font-size: 1.3rem;
-            color: var(--coral);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        
-        .skill-item {
-            background: var(--light-gray);
-            color: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-        
-        .skill-item:hover {
-            background: transparent;
-            color: var(--coral);
-            border-color: var(--coral);
-            transform: translateY(-2px);
         }
         
         /* Hobbies Section */
@@ -739,7 +725,6 @@
                 <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
                 <li><a href="#education" onclick="closeMenu()">Education</a></li>
                 <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
-                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
                 <li><a href="#hobbies" onclick="closeMenu()">Hobbies</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
@@ -762,6 +747,22 @@
                         <a href="https://www.linkedin.com/in/aditya-deshmukh-cd99/" target="_blank" class="btn btn-primary">Let's Connect on LinkedIn</a>
                         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                     </div>
+                    <div class="hero-skills fade-in delay-3">
+                        <span class="skill-item">Palantir Foundry</span>
+                        <span class="skill-item">Databricks</span>
+                        <span class="skill-item">Apache Spark</span>
+                        <span class="skill-item">Apache Airflow</span>
+                        <span class="skill-item">Snowflake</span>
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">Microsoft Azure</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">PySpark</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">ETL/ELT Design</span>
+                        <span class="skill-item">Data Modeling</span>
+                        <span class="skill-item">Performance Optimization</span>
+                    </div>
                 </div>
                 <img src="IMG_0386.jpg" alt="Aditya Deshmukh" class="profile-photo fade-in delay-2">
             </div>
@@ -776,26 +777,25 @@
             </div>
             <div class="about-content">
                 <p>
-                    I'm a data engineer with <strong>6+ years of experience</strong> turning complex data challenges into scalable, cost-efficient solutions.
+                    Hey! I'm Aditya, a data engineer who gets genuinely excited about turning messy data into systems that actually work. Based in Chicago, I spend my days building pipelines, optimizing platforms, and occasionally wondering why someone thought Excel was a good database.
                 </p>
                 <p>
-                    Currently at <strong>Hertz (via TCS)</strong>, I lead cross-functional initiatives that eliminate technical debt, optimize cloud infrastructure, and mentor distributed engineering teams. My work has reduced operational costs by $120K+ annually while improving system performance by 60%.
+                    I'm the person who can explain VPC endpoints to your non-technical PM, debug a Spark job at 2 AM (hopefully not often), and still find time to mentor junior engineers. My superpower? Making complex data infrastructure feel less scary and more like solving a really satisfying puzzle.
                 </p>
-                <p>I specialize in:</p>
+                <p>
+                    When I'm not deep in AWS console or writing Python, you'll find me:
+                </p>
                 <ul>
-                    <li>Cloud-native data architecture (AWS, Databricks, Palantir Foundry)</li>
-                    <li>Infrastructure optimization and cost reduction</li>
-                    <li>Leading teams across multiple time zones</li>
-                    <li>Turning manual processes into automated, scalable systems</li>
+                    <li>Playing soccer or watching Premier League matches (massive fan!)</li>
+                    <li>Gaming—strategy games are basically data modeling with cooler graphics</li>
+                    <li>Running, hiking, or hitting the gym (gotta balance all that desk time)</li>
+                    <li>Go-karting when I need a speed fix</li>
                 </ul>
                 <p>
-                    Before Hertz, I built high-performance data pipelines at <strong>FCA Stellantis</strong>, powering dashboards for 2,000+ users with real-time vehicle insights.
+                    I believe the best code is the code that solves real problems, and the best engineers are the ones who can explain their work without making people's eyes glaze over. Also, I'm pretty sure 90% of data engineering is just moving data from one place to another and making sure it doesn't break along the way. (The other 10% is figuring out why it broke anyway.)
                 </p>
                 <p>
-                    I hold a <strong>Master's in Information Systems (Data Science)</strong> from NJIT and a <strong>B.Tech in Electronics Engineering</strong> from VJTI Mumbai.
-                </p>
-                <p>
-                    <strong>I'm currently exploring senior data engineering opportunities</strong> where I can drive platform modernization, mentor teams, and deliver measurable business impact.
+                    <strong>Currently open to senior data engineering roles</strong> where I can build cool stuff, mentor teams, and maybe save some money along the way. If you're working on interesting data challenges and need someone who actually enjoys untangling technical debt, let's chat!
                 </p>
             </div>
         </div>
@@ -934,61 +934,6 @@
                         <span class="project-tag">Spark</span>
                         <span class="project-tag">Kinesis</span>
                         <span class="project-tag">AWS</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>Technical Skills 🎯</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Data Platforms</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Palantir Foundry</span>
-                        <span class="skill-item">Databricks</span>
-                        <span class="skill-item">Apache Spark</span>
-                        <span class="skill-item">Apache Airflow</span>
-                        <span class="skill-item">Snowflake</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Cloud & Infrastructure</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">AWS S3</span>
-                        <span class="skill-item">AWS Redshift</span>
-                        <span class="skill-item">AWS Kinesis</span>
-                        <span class="skill-item">VPC & PrivateLink</span>
-                        <span class="skill-item">Microsoft Azure</span>
-                        <span class="skill-item">CI/CD</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Programming & Databases</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">SQL</span>
-                        <span class="skill-item">PySpark</span>
-                        <span class="skill-item">MSSQL Server</span>
-                        <span class="skill-item">PostgreSQL</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Data Engineering</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">ETL/ELT Design</span>
-                        <span class="skill-item">Real-time Streaming</span>
-                        <span class="skill-item">Data Modeling</span>
-                        <span class="skill-item">Performance Optimization</span>
-                        <span class="skill-item">Data Quality</span>
                     </div>
                 </div>
             </div>
