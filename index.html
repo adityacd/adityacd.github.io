@@ -844,53 +844,57 @@
         }
 
         /* Section Icon Animations */
-        
-        /* Glow Pulse - For Featured Projects & Beyond Work */
-        .icon-glow-pulse {
-            animation: glow-pulse 2s infinite;
-        }
-        
-        @keyframes glow-pulse {
-            0%, 100% { 
-                filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.5));
-            }
-            50% { 
-                filter: drop-shadow(0 0 20px rgba(74, 144, 226, 1));
-            }
-        }
-        
-        /* Shake - For Let's Connect */
-        .icon-shake {
-            animation: shake 3s infinite;
-        }
-        
-        @keyframes shake {
-            0%, 90%, 100% { transform: translateX(0); }
-            92%, 96% { transform: translateX(-5px); }
-            94%, 98% { transform: translateX(5px); }
-        }
-        
-        /* Wiggle - For About Me */
-        .icon-wiggle {
-            animation: wiggle 2.5s infinite;
-        }
-        
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-5deg); }
-            75% { transform: rotate(5deg); }
-        }
-        
-        /* Bounce - For Experience & Education */
-        .icon-bounce {
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-7px); }
-        }
+
+/* Glow Pulse - For Featured Projects & Beyond Work */
+.icon-glow-pulse {
+    display: inline-block;
+    animation: glow-pulse 2s infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { 
+        filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.5));
+    }
+    50% { 
+        filter: drop-shadow(0 0 20px rgba(74, 144, 226, 1));
+    }
+}
+
+/* Shake - For Let's Connect */
+.icon-shake {
+    display: inline-block;
+    animation: shake 3s infinite;
+}
+
+@keyframes shake {
+    0%, 90%, 100% { transform: translateX(0); }
+    92%, 96% { transform: translateX(-5px); }
+    94%, 98% { transform: translateX(5px); }
+}
+
+/* Wiggle - For About Me */
+.icon-wiggle {
+    display: inline-block;
+    animation: wiggle 2.5s infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Bounce - For Experience & Education */
+.icon-bounce {
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
         
     </style>
 </head>
