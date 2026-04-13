@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBL8PX8WF"></script>
@@ -168,10 +168,27 @@
         
         .hero-text .tagline {
             font-size: 1.15rem;
-            color: var(--gray);
+            color: #F4F6F9;
             margin-bottom: 2.5rem;
             max-width: 600px;
             line-height: 1.7;
+            font-family: 'Anonymous Pro', monospace;
+            min-height: 80px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #4A90E2;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
         
         .cta-buttons {
@@ -855,7 +872,7 @@
                         Hi there, &#128075; <span class="highlight">I'm Aditya!</span>
                     </h1>
                     <p class="tagline fade-in delay-2">
-                        A passionate <strong>Data Engineer</strong> who loves architecting scalable data platforms that drive business impact. Specialized in AWS, Databricks, and Palantir Foundry.
+                        <span id="typingText"></span><span class="typing-cursor"></span>
                     </p>
                     <div class="cta-buttons fade-in delay-3">
                         <a href="https://www.linkedin.com/in/aditya-deshmukh-cd99/" target="_blank" class="btn btn-primary">
@@ -1197,6 +1214,27 @@
         });
         
         
-    </script>
+    // Typing animation for hero tagline
+    const taglineText = "A passionate Data Engineer who loves architecting scalable data platforms that drive business impact. Specialized in AWS, Databricks, and Palantir Foundry.";
+    let charIndex = 0;
+    const typingSpeed = 50; // milliseconds per character
+
+    function typeTagline() {
+        const typingElement = document.getElementById('typingText');
+        
+        if (charIndex < taglineText.length) {
+            typingElement.textContent += taglineText.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeTagline, typingSpeed);
+        }
+        // Cursor continues blinking after typing is complete
+    }
+
+    // Start typing animation when page loads
+    window.addEventListener('load', () => {
+        setTimeout(typeTagline, 1000); // Start after 1 second delay
+    });
+</script>
+    
 </body>
 </html>
