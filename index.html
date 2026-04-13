@@ -842,6 +842,56 @@
             opacity: 0;
             animation-fill-mode: forwards;
         }
+
+        /* Section Icon Animations */
+        
+        /* Glow Pulse - For Featured Projects & Beyond Work */
+        .icon-glow-pulse {
+            animation: glow-pulse 2s infinite;
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.5));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(74, 144, 226, 1));
+            }
+        }
+        
+        /* Shake - For Let's Connect */
+        .icon-shake {
+            animation: shake 3s infinite;
+        }
+        
+        @keyframes shake {
+            0%, 90%, 100% { transform: translateX(0); }
+            92%, 96% { transform: translateX(-5px); }
+            94%, 98% { transform: translateX(5px); }
+        }
+        
+        /* Wiggle - For About Me */
+        .icon-wiggle {
+            animation: wiggle 2.5s infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+        
+        /* Bounce - For Experience & Education */
+        .icon-bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+        
     </style>
 </head>
 <body>
@@ -909,8 +959,8 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2>About Me 🧑🏻‍💻</h2>
+            <div class="section-header fade-in">
+                <h2><span class="icon-wiggle">🧑🏻‍💻</span> About Me</h2>
             </div>
             <div class="about-content">
                 <p>
@@ -935,8 +985,8 @@
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
-            <div class="section-header">
-                <h2>My Career Journey 🚀</h2>
+            <div class="section-header fade-in">
+                <h2><span class="icon-bounce">🚀</span> Experience</h2>
             </div>
             <div class="timeline">
                 <div class="timeline-item" data-date="2023 - Present">
@@ -996,8 +1046,8 @@
     <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
-            <div class="section-header">
-                <h2>Academic Background 🎓</h2>
+            <div class="section-header fade-in">
+                <h2><span class="icon-bounce">🎓</span> Education</h2>
             </div>
             <div class="education-grid">
                 <div class="education-card">
@@ -1032,8 +1082,8 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header">
-                <h2>Featured Projects 💡</h2>
+            <div class="section-header fade-in">
+                <h2><span class="icon-glow-pulse">💡</span> Featured Projects</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
@@ -1062,8 +1112,8 @@
     <!-- Hobbies Section -->
     <section id="hobbies" class="hobbies">
         <div class="container">
-            <div class="section-header">
-                <h2>Beyond Work ⚡</h2>
+            <div class="section-header fade-in">
+                <h2><span class="icon-glow-pulse">⚡</span> Beyond Work</h2>
                 <p class="subtitle">When I'm not architecting data platforms, you'll find me...</p>
             </div>
             <div class="hobbies-grid">
@@ -1144,8 +1194,8 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2>Let's Connect ☎️</h2>
+        <div class="section-header fade-in">
+            <h2><span class="icon-shake">☎️</span> Let's Connect</h2>
             <p class="subtitle">
                 I'm currently exploring senior data engineering opportunities where I can drive platform modernization, lead teams, and deliver measurable impact.<br><br>
                 If you're hiring or know someone who is, I'd love to chat.
